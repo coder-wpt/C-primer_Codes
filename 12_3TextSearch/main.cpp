@@ -4,10 +4,27 @@
 #include <iostream>
 using namespace std;
 
+/*
+ * @function make_plural 根据输入的个数返回相应的string
+ *
+ * @param ctr 需要判断的个数
+ * @param word “word”
+ * @param word “s”
+ *
+ * */
+
 string make_plural(size_t ctr,const string &word,const string &ending)
 {
     return (ctr > 1)? word+ending : word;
 }
+
+/*
+ * @function print 打印输出的结果
+ * 
+ * @param os 输出流对象
+ * @param qr 包含结果的QueryResult类对象
+ * */
+
 
 ostream &print(ostream &os ,const QueryResult &qr)
 {
@@ -16,6 +33,12 @@ ostream &print(ostream &os ,const QueryResult &qr)
         os << "\t(line "<< num + 1 <<")"<< *(qr.file->begin() + num)<<endl;
     return os;
 }
+
+/*
+ * @function runQueries 处理文件与用户的输入并输出结果
+ *
+ * @param infile 需要处理的文件
+ * */
 
 void runQueries(ifstream &infile)
 {

@@ -9,6 +9,17 @@
 #include <set>
 #include "QueryResult.hpp"
 
+/*
+ * @class TextQuery
+ * @brief 处理输入的文本文件，得到结果放入QueryResult类对象中
+ *
+ * @param fiel 保存读入的文件
+ * @param wn 保存单词和对应的行号set
+ * 
+ * @function query 接受string，返回结果
+ * */
+
+
 class QueryResult;//返回类型，需要先定义
 class TextQuery
 {

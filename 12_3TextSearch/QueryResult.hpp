@@ -4,6 +4,16 @@
 #include <string>
 #include <set>
 #include <vector>
+
+/*
+ * @class QueryResult 接受TextQuery类中query函数返回的结果
+ *
+ * @param sought 需要查询的单词
+ * @param lines 单词出现的行号集合set
+ * @param file 输入的文件
+ * */
+
+
 class QueryResult
 {
     friend std::ostream& print(std::ostream &os, const QueryResult&qr);
