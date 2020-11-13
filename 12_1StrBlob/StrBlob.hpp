@@ -1,13 +1,13 @@
 #ifndef STRBLOB_HPP
 #define STRBLOB_HPP
-
-
 #include <vector>
 #include <memory>
 #include <string>
 #include <initializer_list>
-#include "StrBlobPtr.hpp"
 
+//因为友元类的原因将StrBLobPtr.hpp包含了进来，导致互相包含，所以在StrBlob.hpp中展开StrBlobPtr.hpp后因为StrBolb类未定义导致报错*****
+//友元类可以先进行类的声明，
+class StrBlobPtr;
 class StrBlob
 {
     friend class StrBlobPtr;
