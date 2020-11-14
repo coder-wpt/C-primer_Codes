@@ -4,6 +4,7 @@
 class HasPtr
 {
 public:
+    friend void swap(HasPtr&,HasPtr&);
     //构造函数，在动态内存上创建对象，计数为1
     HasPtr(const std::string &str = std::string()):sp(new std::string(str)),i(0),use_count(new std::size_t(1)){}
     //拷贝构造，拷贝指针，不拷贝对象本身。拷贝对象后引用技术需要+1
@@ -36,3 +37,10 @@ private:
     int i;
     std::size_t *use_count;
 };
+
+void swap(HasPtr &lhs,HasPtr &rhs)
+{
+    using std::swap;
+    swap(lhs.sp,rhs.sp);
+    swap(lhs.i,rhs.i);
+}
