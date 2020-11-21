@@ -4,6 +4,8 @@
 #include <set>
 class Message;
 
+
+
 class Folder{
     friend void swap(Folder& lhs,Folder& rhs);
     friend class Message;
@@ -20,7 +22,7 @@ public:
 private:
     void addToMsg(const Folder&);
     void rmFromMsg(const Folder&);
-    std::string FolderName;
+    std::string FolderName;//
     std::set<Message*>Messages;
 
 };

@@ -32,7 +32,7 @@ void Message::remove_from_Folders()
         f->remMsg(this);
 }
 
-Message& Message::operator=(const Message &rhs)
+Message& Message::operator=(const Message &rhs)//make sure that copy self is right
 {
     remove_from_Folders();
     contents = rhs.contents;
@@ -48,7 +48,7 @@ Message::~Message()
 
 void swap(Message &lhs,Message &rhs)
 {
-    using std::swap;
+    using std::swap;//make sure that will not use the swap in std
     for(auto f: lhs.folders)
         f->remMsg(&lhs);
     for(auto f: rhs.folders)
