@@ -65,6 +65,7 @@ String::String(){}
 #Inheritance(继承)
 
 - base中的析构函数必须是virtual
+
 ```
 struct _List_node_base
 {
@@ -81,3 +82,62 @@ struct _List_node : public _List_node_base
 
 - 构造由内而外：构造函数首先调用Base的default构造函数，然后再执行自己的
 - 析构由外而内：析构函数首先执行自己，然后才调用base的析构函数
+
+## virtual
+- non-virtual：你不希望derived class重新定义（override，覆写）它。
+- virtual:你希望derived class重新定义（override，覆写）它，并且你对它已经有默认定义。
+- pure virtual函数：你希望derived class一定要重新定义它，你对他没有默认定义。
+
+
+```
+class Shape{
+public:
+    virtual void draw() const=0;//纯虚函数，希望所有子类都进行覆写
+    virtual void error(const std::string& msg);//虚函数，如有需要，可以进行覆写
+    int objectId()const;//
+    ...
+};
+
+class Rectangle : public Shape{...};
+class Ellipse : public Shape{...};
+```
+
+## Inheritance with virtual
+- Template Method(模板方法模式)
+- 先将可以确定的部分写好，无法确定的部分用虚函数写好，之后再用子类去实现它
+
+```
+//application framework
+CDocument::OnFileOpen()
+{
+    ...
+    Serialize()
+    ...
+}
+
+//application 
+class CMyDoc : public CDocument
+{
+    virtual Serialize(){...}
+};
+
+main()
+{
+    CMyDoc myDoc;
+    ...
+    myDoc.OnFileOpen();
+}
+
+
+```
+
+##Inheritance+Composition关系下的构造和析构
+base_derived_component.hpp
+bese_derived_component2.hpp
+
+##Delegation+Inheritance(委托+继承)
+- observer观察者模式(observer.hpp)
+- composite组合模式(composite.hpp)
+//视频13 11
+    
+
