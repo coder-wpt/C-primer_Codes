@@ -28,3 +28,42 @@ public:
         cout << "CMyDoc::Serialize()" << endl;
     }
 };
+
+class CDataParse
+{
+public:
+    virtual void readdata() = 0;
+    virtual void processdata() = 0;
+    virtual void writedata() = 0;
+
+    virtual void PraseDataAndOutput()
+    {
+        readdata();
+        processdata();
+        writedata();
+    }
+};
+
+class CSVDataParse : public CDataParse
+{
+public:
+    void readdata()
+    {
+        cout << "readdata" << endl;
+    }
+    
+    void processdata()
+    {
+        cout << "processdata" << endl;
+    }
+
+    void writedata()
+    {
+        cout << "writedata" << endl;
+    }
+
+    void process()
+    {
+        PraseDataAndOutput();
+    }
+};
